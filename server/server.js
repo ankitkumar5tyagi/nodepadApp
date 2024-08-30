@@ -21,12 +21,12 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 app.use('/api/notes', noteRoutes);
 
 // Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, './client/build')));
 
 // The "catchall" handler: for any request that doesn't
 // match one of the API routes, send back React's index.html file.
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, './client/build', 'index.html'));
 });
 
 // Start the server
